@@ -37,7 +37,7 @@
           <div class="nav-wrapper"><a class="page-title">Dropdown</a></div>
         </div>
       </nav>
-      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></div>
       <ul id="nav-mobile" class="side-nav fixed">
         <li class="logo"><a id="logo-container" href="http://materializecss.com/" class="brand-logo">
             <object id="front-page-logo" type="image/svg+xml" data="res/materialize.svg">Your browser does not support SVG</object></a></li>
@@ -86,6 +86,7 @@
             <li class="bold"><a class="collapsible-header active waves-effect waves-teal">JavaScript</a>
               <div class="collapsible-body">
                 <ul>
+                  <li><a href="carousel.html">Carousel</a></li>
                   <li><a href="collapsible.html">Collapsible</a></li>
                   <li><a href="dialogs.html">Dialogs</a></li>
                   <li class="active"><a href="dropdown.html">Dropdown</a></li>
@@ -176,6 +177,10 @@
               <td>alignment</td>
               <td>Defines the edge the menu is aligned to. Default: 'left'</td>
             </tr>
+            <tr>
+              <td>stoppropagation</td>
+              <td>If true, stops the event propagating from the dropdown origin click handler. Default: false</td>
+            </tr>
           </tbody>
         </table>
         <p>To use these inline you have to add them as data attributes. If you want more dynamic control, you can define them using the jQuery plugin below. </p>
@@ -201,6 +206,22 @@
     }
   );
         </code></pre>
+
+        <p>
+        You can also open dropdowns programatically, the below code will make your modal open on document ready:
+        </p>
+
+        <pre><code class="language-javascript">
+  $('.dropdown-button').dropdown('open');
+        </code></pre>
+
+        <p>
+        You can also close dropdowns programatically:
+        </p>
+
+        <pre><code class="language-javascript">
+  $('.dropdown-button').dropdown('close');
+        </code></pre>
       </div>
 
 
@@ -225,7 +246,6 @@
 
   </div>
 </div>
-
 
     </main>    <footer class="page-footer">
       <div class="container">
@@ -259,11 +279,12 @@
       </div>
       <div class="footer-copyright">
         <div class="container">
-        © 2014-2015 Materialize, All rights reserved.
+        © 2014-2016 Materialize, All rights reserved.
         <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
         </div>
       </div>
     </footer>
+
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>if (!window.jQuery) { document.write('<script src="bin/jquery-2.1.1.min.js"><\/script>'); }

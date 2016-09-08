@@ -37,7 +37,7 @@
           <div class="nav-wrapper"><a class="page-title">Pushpin</a></div>
         </div>
       </nav>
-      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></div>
       <ul id="nav-mobile" class="side-nav fixed">
         <li class="logo"><a id="logo-container" href="http://materializecss.com/" class="brand-logo">
             <object id="front-page-logo" type="image/svg+xml" data="res/materialize.svg">Your browser does not support SVG</object></a></li>
@@ -86,6 +86,7 @@
             <li class="bold"><a class="collapsible-header active waves-effect waves-teal">JavaScript</a>
               <div class="collapsible-body">
                 <ul>
+                  <li><a href="carousel.html">Carousel</a></li>
                   <li><a href="collapsible.html">Collapsible</a></li>
                   <li><a href="dialogs.html">Dialogs</a></li>
                   <li><a href="dropdown.html">Dropdown</a></li>
@@ -113,14 +114,10 @@
 
     <div class="col s12 m9 l10">
 
-      <div id="introduction" class="section scrollspy">
-        <h4>Introduction</h4>
-        <p class="caption">Pushpin is our fixed positioning plugin. You can check out our live examples: the fixed Table of Contents on the right. </p>
-      </div>
-
-
-
       <div id="initialization" class="section scrollspy">
+        <h4>Introduction</h4>
+        <p class="caption">Pushpin is our fixed positioning plugin. Use this to pin elements to your page during specific scroll ranges. You can check out our live example: the fixed table of contents on the right. </p>
+
         <h4>jQuery Plugin Initialization</h4>
         <pre><code class="language-javascript col s12">
   $(document).ready(function(){
@@ -129,11 +126,31 @@
         </code></pre>
       </div>
 
+      <div id="classes" class="section scrollspy">
+        <h4>CSS Classes</h4>
+        <p class="caption">A pushpinned element has 3 states. One above and below the scrolling threshold, and the pinned state where the element becomes fixed. Because pushpin changes positioning, chances are your element will look different when the states change. Use these css classes to correctly style your 3 states.</p>
+        <pre><code class="language-css col s12">
+  // Class for when element is above threshold
+  .pin-top {
+    position: relative;
+  }
+
+  // Class for when element is below threshold
+  .pin-bottom {
+    position: relative;
+  }
+
+  // Class for when element is pinned
+  .pinned {
+    position: fixed !important;
+  }
+        </code></pre>
+      </div>
 
 
       <div id="options" class="section scrollspy">
         <h4>jQuery Plugin Options</h4>
-        <table class="hoverable">
+        <table class="highlight">
           <thead>
             <tr>
                 <th>Option Name</th>
@@ -156,8 +173,16 @@
             </tr>
           </tbody>
         </table>
-      </div>
 
+        <br />
+        <h4>Removal</h4>
+        <p>To remove the pushpin from an element, pass in <code class="language-javascript">'remove'</code> as the option to the pushpin function</p>
+        <pre><code class="language-javascript">
+  //Removes pushpin and pushpin classes
+  $('.tabs-wrapper .row').pushpin('remove');
+        </code></pre>
+
+      </div>
     </div>
 
 
@@ -170,8 +195,8 @@
         </div>
         <div style="height: 1px;">
           <ul class="section table-of-contents">
-            <li><a href="#introduction">Introduction</a></li>
             <li><a href="#initialization">Initialization</a></li>
+            <li><a href="#classes">CSS classes</a></li>
             <li><a href="#options">Options</a></li>
           </ul>
         </div>
@@ -180,7 +205,6 @@
 
   </div>
 </div>
-
 
     </main>    <footer class="page-footer">
       <div class="container">
@@ -214,11 +238,12 @@
       </div>
       <div class="footer-copyright">
         <div class="container">
-        © 2014-2015 Materialize, All rights reserved.
+        © 2014-2016 Materialize, All rights reserved.
         <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
         </div>
       </div>
     </footer>
+
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>if (!window.jQuery) { document.write('<script src="bin/jquery-2.1.1.min.js"><\/script>'); }
